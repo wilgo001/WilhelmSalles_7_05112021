@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Les petits plats</title>
+        <!-- css import -->
+        <meta name="viewport" width="device-width" initial-scale="1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/all.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <!-- js import -->
+        <script type="text/javascript" src="scripts/Recipes.js"></script>
+        <script type="text/javascript" src="scripts/utils.js"></script>
+        <script type="text/javascript" src="scripts/InputEvents.js"></script>
+        <script type="text/javascript" src="scripts/GenerateRecipes.js"></script>
+        <script type="text/javascript" src="scripts/GenerateSuggestions.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="assets/15973932905401_logo.png" alt="Les petits plats">
+        </header>
+        <main>
+            <form>
+                <input type="text" name="global-search" id="global-search"  class="global-search" placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
+                <div class="global-list"></div>
+                <div class="ingredient container-filter">
+                    <input type="text" name="ingredient-search" id="ingredient-search" class="ingredient-search specific-input" placeholder="Ingrédients">
+                    <div class="ingredient-list filter-list"></div>
+                </div>
+                <div class="device container-filter">
+                    <input type="text" name="device-search" id="device-search" class="device-search specific-input" placeholder="Appareils">
+                    <div class="device-list filter-list"></div>
+                </div>
+                <div class="tool container-filter">
+                    <input type="text" name="tool-search" id="tool-search" class="tool-search specific-input" placeholder="Ustensiles">
+                    <div class="tool-list filter-list"></div>
+                </div>
+            </form>
+            <div class="recipe-list" id="recipe-list"></div>
+        </main>
+        <script>start()</script>
+    </body>
+</html>

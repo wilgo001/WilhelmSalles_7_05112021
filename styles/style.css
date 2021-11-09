@@ -1,0 +1,143 @@
+header img {
+    max-width: 100%;
+    width: 300px;
+    margin: 0 50%;
+    transform: translateX(-50%);
+}
+
+header {
+    width: 100%;
+    height: fit-content;
+    margin-top: 20px;
+}
+
+main {
+    width: calc(100% - 100px);
+    margin: 0 50px;
+}
+
+/* INPUT STYLE */
+
+form {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        'glob glob glob glob'
+        'filt filt filt filt'
+        'ing dev tool .';
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(3, min-content) auto;
+}
+
+input[type=text] {
+    height: 50px;
+    line-height: 50px;
+    padding:0 10px;
+    border-radius: 4px;
+}
+
+.global-search {
+    grid-area: glob;
+    width: 100%;
+    background-color: var(--light-grey);
+}
+
+.global-list {
+    grid-area: filt;
+    display: none;
+}
+
+.specific-input::placeholder {
+    color: white;
+    font-weight: 600;
+}
+
+.ingredient-search {
+    background-color: var(--blue);
+}
+
+.device-search {
+    background-color: var(--green);
+}
+
+.tool-search {
+    background-color: var(--red);
+}
+
+.ingredient {
+    grid-area: ing;
+}
+
+.device {
+    grid-area: dev;
+}
+
+.tool {
+    grid-area: tool;
+}
+
+.container-filter {
+    display: inline-block;
+}
+
+
+/* RECIPES STYLE */
+
+.recipe-list {
+    margin-top: 30px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.recipe-container {
+    display: grid;
+    position: relative;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: var(--light-grey);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 20px;
+    grid-template-areas:
+        'img    img'
+        'title  title'
+        'ing    desc';
+}
+
+.recipe-container .recipe-img {
+    background-color: var(--dark-grey);
+    grid-area: img;
+    height: 120px;
+    width: calc(100% + 40px);
+    margin: -20px -20px 0 -20px;
+    border-radius: 4px 4px 0 0;
+}
+
+.recipe-container .recipe-title {
+    grid-area: title;
+    font-size: 1.5rem;
+    width: calc(100% - 60px);
+}
+
+.recipe-container .recipe-time {
+    position: absolute;
+    top: 140px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.recipe-container .recipe-ingredients {
+    grid-area: ing;
+}
+
+.recipe-container .recipe-desc {
+    grid-area: desc;
+    height: 70px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
