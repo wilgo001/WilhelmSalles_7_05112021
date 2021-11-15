@@ -24,7 +24,7 @@ form {
     grid-template-areas: 
         'glob glob glob glob'
         'filt filt filt filt'
-        'ing dev tool .';
+        'ing app ust .';
     column-gap: 10px;
     row-gap: 10px;
     grid-template-columns: repeat(3, min-content) auto;
@@ -53,32 +53,45 @@ input[type=text] {
     font-weight: 600;
 }
 
-.ingredient-search {
-    background-color: var(--blue);
-}
-
-.device-search {
-    background-color: var(--green);
-}
-
-.tool-search {
-    background-color: var(--red);
+.specific-input {
+    background-color: inherit;
+    color: white;
+    font-weight: 600;
 }
 
 .ingredient {
     grid-area: ing;
+    background-color: var(--blue);
 }
 
-.device {
-    grid-area: dev;
+.appliance {
+    grid-area: app;
+    background-color: var(--green);
 }
 
-.tool {
-    grid-area: tool;
+.ustensils {
+    grid-area: ust;
+    background-color: var(--red);
 }
 
 .container-filter {
     display: inline-block;
+    position: relative;
+    border-radius: 4px;
+}
+
+.container-filter::after {
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f077';
+    position: absolute;
+    z-index: 5;
+    right: 5px;
+    top: 0;
+    color: white;
+    font-size: 2rem;
+    height: 50px;
+    line-height: 50px;
 }
 
 
@@ -118,7 +131,7 @@ input[type=text] {
 .recipe-container .recipe-title {
     grid-area: title;
     font-size: 1.5rem;
-    width: calc(100% - 60px);
+    width: calc(100% - 70px);
 }
 
 .recipe-container .recipe-time {
@@ -127,6 +140,13 @@ input[type=text] {
     right: 20px;
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.recipe-container .recipe-time::before {
+    font-weight: 400;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f017';
+    margin-right: 3px;
 }
 
 .recipe-container .recipe-ingredients {
