@@ -11,11 +11,11 @@
         <link rel="stylesheet" href="styles/font-awesome/css/all.css">
         <link rel="stylesheet" href="styles/style.css">
         <!-- js import -->
-        <script type="text/javascript" src="scripts/Recipes.js"></script>
+        <script type="text/javascript" src="scripts/data.js"></script>
         <script type="text/javascript" src="scripts/utils.js"></script>
+        <script type="text/javascript" src="scripts/Recipes.js"></script>
+        <script type="text/javascript" src="scripts/Suggestions.js"></script>
         <script type="text/javascript" src="scripts/InputEvents.js"></script>
-        <script type="text/javascript" src="scripts/GenerateRecipes.js"></script>
-        <script type="text/javascript" src="scripts/GenerateSuggestions.js"></script>
     </head>
     <body>
         <header>
@@ -24,22 +24,26 @@
         <main>
             <form>
                 <input type="text" name="global-search" id="global-search"  class="global-search" placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
-                <div class="global-list"></div>
-                <div class="ingredient container-filter">
-                    <input type="text" name="ingredient-search" id="ingredient-search" class="ingredient-search specific-input" placeholder="Ingrédients">
-                    <div class="ingredient-list filter-list"></div>
-                </div>
-                <div class="appliance container-filter">
-                    <input type="text" name="appliance-search" id="appliance-search" class="appliance-search specific-input" placeholder="Appareils">
-                    <div class="appliance-list filter-list"></div>
-                </div>
-                <div class="ustensils container-filter">
-                    <input type="text" name="ustensils-search" id="ustensils-search" class="ustensils-search specific-input" placeholder="Ustensiles">
-                    <div class="ustensils-list filter-list"></div>
+                <div class="selected-filter-list"></div>
+                <div class="container-filters-relative">
+                    <div class="container-filters-absolute">
+                        <div class="ingredient container-filter">
+                            <input type="text" name="ingredient-search" id="ingredient-search" class="ingredient-search specific-input" placeholder="Ingrédients">
+                            <div class="ingredient-list filter-list"></div>
+                        </div>
+                        <div class="appliance container-filter">
+                            <input type="text" name="appliance-search" id="appliance-search" class="appliance-search specific-input" placeholder="Appareils">
+                            <div class="appliance-list filter-list"></div>
+                        </div>
+                        <div class="ustensils container-filter">
+                            <input type="text" name="ustensils-search" id="ustensils-search" class="ustensils-search specific-input" placeholder="Ustensiles">
+                            <div class="ustensils-list filter-list"></div>
+                        </div>
+                    </div>
                 </div>
             </form>
             <div class="recipe-list" id="recipe-list"></div>
         </main>
-        <script>start()</script>
+        <script src="scripts/Algo.js"></script>
     </body>
 </html>

@@ -20,14 +20,10 @@ main {
 
 form {
     width: 100%;
-    display: grid;
-    grid-template-areas: 
-        'glob glob glob glob'
-        'filt filt filt filt'
-        'ing app ust .';
-    column-gap: 10px;
-    row-gap: 10px;
-    grid-template-columns: repeat(3, min-content) auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
 }
 
 input[type=text] {
@@ -35,17 +31,12 @@ input[type=text] {
     line-height: 50px;
     padding:0 10px;
     border-radius: 4px;
+    font-size: 1.2rem;
 }
 
 .global-search {
-    grid-area: glob;
     width: 100%;
     background-color: var(--light-grey);
-}
-
-.global-list {
-    grid-area: filt;
-    display: none;
 }
 
 .specific-input::placeholder {
@@ -60,24 +51,39 @@ input[type=text] {
 }
 
 .ingredient {
-    grid-area: ing;
     background-color: var(--blue);
 }
 
 .appliance {
-    grid-area: app;
     background-color: var(--green);
 }
 
 .ustensils {
-    grid-area: ust;
     background-color: var(--red);
+}
+.container-filters-relative {
+    position: relative;
+    height: 50px;
+}
+
+.container-filters-absolute {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
 }
 
 .container-filter {
     display: inline-block;
     position: relative;
     border-radius: 4px;
+    height: min-content;
+    width: fit-content;
+    place-self: start stretch;
 }
 
 .container-filter::after {
@@ -94,6 +100,47 @@ input[type=text] {
     line-height: 50px;
 }
 
+.filter-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 10px;
+    gap: 5px;
+}
+
+.suggestion {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.selected-filter-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.selected-filter {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    pointer-events: none;
+    padding: 0 10px;
+    height: 30px;
+    width: auto;
+    line-height: 30px;
+    border-radius: 4px;
+}
+
+.selected-filter::after {
+    font-weight: 400;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f057';
+    pointer-events: all;
+    padding-left: 5px;
+}
 
 /* RECIPES STYLE */
 
