@@ -35,6 +35,3 @@ class Recipe {
         return container;
     }
 }
-
-let recipeList = [];
-let showedRecipeList = [];
