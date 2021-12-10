@@ -31,7 +31,7 @@ class SuggestionManager {
 
     createSuggestionDom = (filter, key) => {
         let label = CE('label', { innerText: key, className: 'suggestion' });
-        label.addEventListener('click', (e) => { addFilter(key, filter) });
+        label.addEventListener('click', (e) => { this.addFilter(key, filter) });
         AC(document.getElementsByClassName(filter + '-list')[0], label);
 
     }
@@ -87,7 +87,7 @@ class SuggestionManager {
         });
 
         let filterDom = CE('label', { innerText: filter, classList: 'selected-filter ' + filterType, id: filter });
-        filterDom.addEventListener('click', (e) => { removeFilter(filter, filterType) });
+        filterDom.addEventListener('click', (e) => { this.removeFilter(filter, filterType) });
         AC(SelectedFilterList, filterDom);
 
         this.selectedFilterMap.set(filter, new SelectedFilter(filter, filterType, filterDom));
