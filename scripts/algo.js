@@ -26,6 +26,11 @@ const SelectedFilterList = document.getElementsByClassName('selected-filter-list
 
 const recipeListDom = document.getElementById('recipe-list');
 
+const refreshPage = () => {
+    recipeListDom.innerHTML = '';
+    suggestionManager.setShowedRecipeList(recipeList);
+}
+
 const filterRecipe = (selectedFilterMap) => {
     let showedRecipeList = [];
     if(globalSearch.value.length > 0) {
@@ -54,10 +59,10 @@ const filterRecipe = (selectedFilterMap) => {
             }
         });
     });
-
+    
+    refreshPage();
     if(showedRecipeList.length > 0) {
         suggestionManager.setShowedRecipeList(showedRecipeList);
-        recipeListDom.innerHTML = '';
         showedRecipeList.forEach(el => {
             el.showRecipe();
         });
@@ -65,6 +70,7 @@ const filterRecipe = (selectedFilterMap) => {
 } 
 
 globalSearch.addEventListener('input', (e) => {
+    refreshPage();
     if(globalSearch.value.length > 2) {
         filterRecipe(null);
     }
