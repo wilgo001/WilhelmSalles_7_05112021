@@ -1,3 +1,5 @@
+const suggestionManager = new SuggestionManager();
+
 const filter = {
     ingredient: 'ingredient',
     appliance: 'appliance',
@@ -65,6 +67,7 @@ const showRecipes = () => {
     }
 
     for(let i=0; i<showedRecipes.length; i++) {
+        suggestionManager.addSuggestions(showedRecipes[i]);
         showRecipe(showedRecipes[i]);
     }
     
