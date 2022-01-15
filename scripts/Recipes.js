@@ -8,7 +8,7 @@ class Recipe {
     }
 
     showRecipe() {
-        AC(recipeListDom, this.html);
+        AC(recipesContainer, this.html);
     }
 
 

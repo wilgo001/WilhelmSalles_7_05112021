@@ -1,11 +1,5 @@
-const FILTER = {
-    ingredient: 'ingredient',
-    appliance: 'appliance',
-    ustensil: 'ustensils',
-
-}
-
 class SuggestionManager {
+    algo
 
     ingredientMap = new Map();
     applianceMap = new Map();
@@ -91,13 +85,13 @@ class SuggestionManager {
         AC(SelectedFilterList, filterDom);
 
         this.selectedFilterMap.set(filter, new SelectedFilter(filter, filterType, filterDom));
-        filterRecipe(this.selectedFilterMap);
+        this.algo.showRecipes();
     }
 
     removeFilter = (filter) => {
         this.selectedFilterMap.get(filter).html.remove();
         this.selectedFilterMap.delete(filter);
-        filterRecipe(this.selectedFilterMap);
+        this.algo.showRecipes();
     }
 
     setShowedRecipeList(list) {
